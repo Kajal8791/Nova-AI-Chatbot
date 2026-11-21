@@ -1,0 +1,1005 @@
+
+/* ==============================
+   NOVA AI - GLOBAL SETTINGS
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0c1020;
+    color: #f5f6ff;
+}
+
+/* ==============================
+   MAIN APP LAYOUT
+================================ */
+
+.app {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* ==============================
+   SIDEBAR
+================================ */
+
+.sidebar {
+    width: 250px;
+    min-width: 250px;
+    height: 100%;
+    background: #111629;
+    border-right: 1px solid #252c42;
+    padding: 28px 15px 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 35px;
+    flex-shrink: 0;
+}
+
+.brand-icon,
+.welcome-icon {
+    background: linear-gradient(135deg, #765cff, #25c5d9);
+    border-radius: 13px;
+    display: grid;
+    place-items: center;
+    color: white;
+}
+
+.brand-icon {
+    width: 38px;
+    height: 38px;
+}
+
+.new-chat {
+    background: #242d47;
+    border: 1px solid #394461;
+    color: white;
+    padding: 13px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+.new-chat:hover {
+    background: #354365;
+}
+
+/* ==============================
+   CHAT HISTORY
+================================ */
+
+.chat-history {
+    margin-top: 25px;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #394461 transparent;
+}
+
+.history-heading {
+    color: #9ba9bd;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.history-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 7px;
+    width: 100%;
+}
+
+.history-item {
+    flex: 1;
+    min-width: 0;
+    display: block;
+    text-align: left;
+    padding: 11px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #d4dbea;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.history-item:hover,
+.history-item.active {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.delete-chat {
+    width: 35px;
+    min-width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #ff8585;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.delete-chat:hover {
+    background: rgba(255, 80, 80, 0.15);
+}
+
+/* ==============================
+   SIDEBAR INFORMATION
+================================ */
+
+.sidebar-info {
+    margin-top: 25px;
+    line-height: 2;
+    flex-shrink: 0;
+}
+
+.sidebar-info p {
+    color: #8c96b5;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.sidebar-info span {
+    color: #c1c7da;
+    font-size: 13px;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding-top: 18px;
+    font-size: 12px;
+    color: #b8c2d8;
+    flex-shrink: 0;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #37d99a;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+/* ==============================
+   MAIN CHAT AREA
+================================ */
+
+.chat-area {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ==============================
+   TOP HEADER
+================================ */
+
+.topbar {
+    min-height: 85px;
+    padding: 22px 35px;
+    border-bottom: 1px solid #252c42;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    background: #0c1020;
+}
+
+.topbar h2 {
+    font-size: 18px;
+}
+
+.topbar p {
+    color: #929bb5;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.online {
+    color: #42dfa2;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* ==============================
+   MESSAGE SCROLL AREA
+================================ */
+
+.messages {
+    flex: 1;
+    min-height: 0;
+    padding: 30px 10%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #394461 transparent;
+    scroll-behavior: smooth;
+}
+
+/* ==============================
+   WELCOME SCREEN
+================================ */
+
+.welcome {
+    text-align: center;
+    margin: 12vh auto 0;
+}
+
+.welcome-icon {
+    width: 65px;
+    height: 65px;
+    font-size: 32px;
+    margin: 0 auto 22px;
+}
+
+.welcome h1 {
+    font-size: 29px;
+    margin-bottom: 12px;
+}
+
+.welcome p {
+    color: #9da6c0;
+}
+
+.suggestions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.suggestion {
+    padding: 11px 15px;
+    background: #171e34;
+    color: #dce2f5;
+    border: 1px solid #343d59;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.suggestion:hover {
+    background: #293451;
+    border-color: #705cf0;
+}
+
+/* ==============================
+   CHAT MESSAGES
+================================ */
+
+.message {
+    max-width: 75%;
+    padding: 14px 17px;
+    border-radius: 15px;
+    margin-bottom: 18px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+.user {
+    background: #6553dc;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+
+.bot {
+    background: #1a2239;
+    border: 1px solid #303a55;
+    border-bottom-left-radius: 4px;
+}
+
+/* ==============================
+   TYPING INDICATOR
+================================ */
+
+.typing {
+    display: none;
+    color: #9da6c0;
+    padding: 10px 10%;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+/* ==============================
+   MESSAGE INPUT AREA
+================================ */
+
+.input-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 12px auto 0;
+    width: 80%;
+    padding: 10px;
+    background: #171e34;
+    border: 1px solid #394461;
+    border-radius: 15px;
+    flex-shrink: 0;
+}
+
+.input-area:focus-within {
+    border-color: #705cf0;
+    box-shadow: 0 0 0 2px rgba(112, 92, 240, 0.12);
+}
+
+.input-area input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.input-area input::placeholder {
+    color: #8994b0;
+}
+
+.input-area button {
+    background: #705cf0;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.input-area button:hover {
+    background: #806eff;
+}
+
+.input-area button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ==============================
+   DISCLAIMER / BOTTOM FOOTER
+================================ */
+
+.disclaimer {
+    text-align: center;
+    color: #77819d;
+    font-size: 11px;
+    padding: 13px;
+    flex-shrink: 0;
+    background: #0c1020;
+}
+
+/* ==============================
+   CODE BLOCK DESIGN
+================================ */
+
+.code-block {
+    width: 100%;
+    max-width: 100%;
+    margin: 18px 0;
+    background: #0b1120;
+    border: 1px solid #394461;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.code-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: #202a42;
+    border-bottom: 1px solid #394461;
+}
+
+.code-toolbar span {
+    color: #8fa8ff;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: lowercase;
+    margin-right: auto;
+}
+
+.code-toolbar button {
+    background: #354365;
+    color: #ffffff;
+    border: 1px solid #53658d;
+    border-radius: 6px;
+    padding: 7px 12px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.code-toolbar button:hover {
+    background: #705cf0;
+}
+
+.code-block pre {
+    margin: 0;
+    padding: 18px;
+    overflow-x: auto;
+    white-space: pre;
+    background: #0b1120;
+}
+
+.code-block pre code {
+    display: block;
+    color: #d8e4ff;
+    font-family: Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    white-space: pre;
+    overflow-wrap: normal;
+}
+
+.inline-code {
+    background: #303b57;
+    color: #8fe5d2;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: Consolas, monospace;
+}
+
+/* ==============================
+   BOT RESPONSE FORMATTING
+================================ */
+
+.bot h1,
+.bot h2,
+.bot h3 {
+    margin: 14px 0 9px;
+    color: #aebeff;
+}
+
+.bot ul,
+.bot ol {
+    padding-left: 22px;
+    margin: 10px 0;
+}
+
+.bot li {
+    margin-bottom: 6px;
+}
+
+.bot strong {
+    color: #ffffff;
+}
+
+.bot hr {
+    border: none;
+    border-top: 1px solid #394461;
+    margin: 14px 0;
+}
+
+/* ==============================
+   CUSTOM SCROLLBARS
+================================ */
+
+.messages::-webkit-scrollbar,
+.chat-history::-webkit-scrollbar,
+.code-block pre::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.messages::-webkit-scrollbar-thumb,
+.chat-history::-webkit-scrollbar-thumb,
+.code-block pre::-webkit-scrollbar-thumb {
+    background: #394461;
+    border-radius: 10px;
+}
+
+.messages::-webkit-scrollbar-track,
+.chat-history::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 650px) {
+
+    .sidebar {
+        display: none;
+    }
+
+    .topbar {
+        min-height: 75px;
+        padding: 18px;
+    }
+
+    .messages {
+        padding: 25px 15px;
+    }
+
+    .welcome {
+        margin-top: 10vh;
+    }
+
+    .welcome h1 {
+        font-size: 23px;
+    }
+
+    .message {
+        max-width: 90%;
+    }
+
+    .input-area {
+        width: 94%;
+        margin-top: 10px;
+    }
+
+    .input-area button {
+        padding: 11px 15px;
+    }
+
+    .disclaimer {
+        padding: 10px 5px;
+        font-size: 10px;
+    }
+
+    .typing {
+        padding: 8px 5%;
+    }
+}
+
+@media (max-height: 500px) {
+    .topbar {
+        min-height: 65px;
+        padding: 12px 20px;
+    }
+
+    .disclaimer {
+        padding: 7px;
+    }
+
+    .welcome {
+        margin-top: 20px;
+    }
+}
+
+
+/* =========================================
+   NOVA AI - PROFESSIONAL RESPONSIVE UPDATE
+   Add this block at the END of style.css
+========================================= */
+
+/* Better sizing and smooth interactions */
+button,
+input {
+    font: inherit;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid #8b7cff;
+    outline-offset: 3px;
+}
+
+.message {
+    width: fit-content;
+    max-width: min(75%, 850px);
+}
+
+.bot {
+    margin-right: auto;
+}
+
+.user {
+    margin-left: auto;
+}
+
+.messages {
+    scroll-padding-bottom: 20px;
+}
+
+.input-area {
+    margin-bottom: 0;
+}
+
+.input-area input {
+    line-height: 1.5;
+}
+
+.input-area button {
+    min-height: 42px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.input-area button:active,
+.new-chat:active {
+    transform: scale(0.98);
+}
+
+/* Profile area - ready for profile HTML */
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 12px;
+    margin-top: 15px;
+    border: 1px solid #303a55;
+    border-radius: 12px;
+    background: #171e34;
+    min-width: 0;
+}
+
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #765cff, #25c5d9);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.profile-details {
+    min-width: 0;
+    flex: 1;
+}
+
+.profile-name {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.profile-email {
+    color: #9ba9bd;
+    font-size: 11px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Mobile menu - ready for menu button */
+.menu-toggle {
+    display: none;
+    border: 1px solid #394461;
+    background: #242d47;
+    color: white;
+    border-radius: 9px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 21px;
+}
+
+.sidebar-overlay {
+    display: none;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .sidebar {
+        width: 225px;
+        min-width: 225px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .topbar {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .messages {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .input-area {
+        width: 88%;
+    }
+
+    .message {
+        max-width: 85%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .app {
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        overflow: hidden;
+    }
+
+    .chat-area {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .topbar {
+        min-height: 68px;
+        padding: 10px 14px;
+        gap: 10px;
+    }
+
+    .topbar h2 {
+        font-size: 16px;
+    }
+
+    .topbar p {
+        font-size: 11px;
+    }
+
+    .online {
+        font-size: 11px;
+    }
+
+    .menu-toggle {
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+    }
+
+    /* Sidebar drawer - opens when .open is added */
+    .sidebar {
+        display: flex;
+        position: fixed;
+        z-index: 1002;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: min(290px, 85vw);
+        min-width: 0;
+        height: 100%;
+        height: 100dvh;
+        padding: 22px 14px;
+        transform: translateX(-105%);
+        transition: transform 0.25s ease;
+        box-shadow: 15px 0 35px rgba(0, 0, 0, 0.35);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+        z-index: 1001;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.58);
+        backdrop-filter: blur(2px);
+    }
+
+    .sidebar-overlay.show {
+        display: block;
+    }
+
+    .messages {
+        padding: 18px 12px;
+        flex: 1;
+        min-height: 0;
+    }
+
+    .welcome {
+        margin: 9vh auto 20px;
+        padding: 0 8px;
+    }
+
+    .welcome-icon {
+        width: 54px;
+        height: 54px;
+        font-size: 27px;
+        margin-bottom: 17px;
+    }
+
+    .welcome h1 {
+        font-size: clamp(20px, 6vw, 25px);
+        line-height: 1.3;
+    }
+
+    .welcome p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .suggestions {
+        gap: 8px;
+        margin-top: 20px;
+    }
+
+    .suggestion {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    .message {
+        width: fit-content;
+        max-width: 92%;
+        padding: 12px 14px;
+        margin-bottom: 13px;
+        font-size: 14px;
+        line-height: 1.6;
+        border-radius: 13px;
+    }
+
+    .typing {
+        padding: 7px 14px;
+        font-size: 12px;
+    }
+
+    .input-area {
+        width: auto;
+        margin: 8px 10px 0;
+        padding: 7px;
+        gap: 6px;
+        border-radius: 13px;
+    }
+
+    .input-area input {
+        padding: 9px 7px;
+        font-size: 14px;
+    }
+
+    .input-area button {
+        min-height: 40px;
+        padding: 9px 13px;
+        font-size: 13px;
+        border-radius: 9px;
+    }
+
+    .disclaimer {
+        padding: 8px 5px;
+        font-size: 10px;
+        line-height: 1.4;
+    }
+
+    .code-toolbar {
+        gap: 6px;
+        padding: 8px;
+    }
+
+    .code-toolbar button {
+        padding: 7px 8px;
+        font-size: 11px;
+    }
+
+    .code-block pre {
+        padding: 12px;
+    }
+
+    .code-block pre code {
+        font-size: 12px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+    .topbar {
+        padding: 9px 10px;
+    }
+
+    .topbar h2 {
+        font-size: 15px;
+    }
+
+    .message {
+        max-width: 96%;
+        font-size: 13px;
+    }
+
+    .input-area {
+        margin-left: 7px;
+        margin-right: 7px;
+    }
+
+    .input-area button {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .disclaimer {
+        font-size: 9px;
+    }
+}
+
+/* Landscape phones and short screens */
+@media (max-height: 500px) and (max-width: 650px) {
+    .topbar {
+        min-height: 55px;
+        padding: 7px 12px;
+    }
+
+    .messages {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .welcome {
+        margin-top: 15px;
+    }
+
+    .welcome-icon {
+        width: 42px;
+        height: 42px;
+        margin-bottom: 10px;
+    }
+
+    .welcome h1 {
+        font-size: 20px;
+    }
+
+    .suggestions {
+        margin-top: 12px;
+    }
+
+    .disclaimer {
+        padding: 5px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}

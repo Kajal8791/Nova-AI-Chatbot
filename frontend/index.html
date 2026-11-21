@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova AI - Chat Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">✦</div>
+                <span>Nova AI</span>
+            </div>
+
+            <button class="new-chat" id="newChat">+ New Chat</button>
+
+            <div class="chat-history">
+                <p class="history-heading">CHAT HISTORY</p>
+                <div id="historyList"></div>
+            </div>
+
+            <button id="logoutButton" class="new-chat">
+                Logout
+            </button>
+
+            <div class="sidebar-info">
+                <p>YOUR AI ASSISTANT</p>
+                <span>Ask anything. Explore everything.</span>
+            </div>
+
+            <div class="sidebar-bottom">
+                <span class="status-dot"></span>
+                Backend Connected
+            </div>
+        </aside>
+
+        <main class="chat-area">
+            <div class="sidebar-overlay" id="sidebarOverlay"></div>
+            <header class="topbar">
+                <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open navigation menu"
+                    aria-expanded="false">
+                    ☰
+                </button>
+                <div>
+                    <h2>AI Assistant</h2>
+                    <p>Your intelligent conversation partner</p>
+                </div>
+                <div class="online">● Online</div>
+            </header>
+
+            <section class="messages" id="messages">
+                <div class="welcome" id="welcome">
+                    <div class="welcome-icon">✦</div>
+                    <h1>How can I help you today?</h1>
+                    <p>Start a conversation with Nova AI.</p>
+                    <div class="suggestions">
+                        <button class="suggestion">Hello</button>
+                        <button class="suggestion">What is your name?</button>
+                        <button class="suggestion">I need help</button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="typing" id="typing">Nova AI is thinking...</div>
+
+            <form class="input-area" id="chatForm">
+                <input type="text" id="messageInput" placeholder="Message Nova AI..." autocomplete="off" required>
+                <button type="submit" id="sendButton">Send ↑</button>
+            </form>
+
+            <p class="disclaimer">
+                Nova AI can make mistakes. Check important information.
+            </p>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
